@@ -3,6 +3,6 @@
         if ($i == 5){
             continue;
         }
-        echo $i . '<br>';
+        echo $i . PHP_EOL;
     }
 ?>

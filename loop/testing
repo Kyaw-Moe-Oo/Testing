@@ -1,0 +1,13 @@
+<?php
+$fruits = ['apple', 'banana', 'orange', 'mango', 'grape'];
+
+$i = 0;
+$count = count($fruits);
+
+do {
+    if ($fruits[$i] === 'orange') {
+        echo "Orange found at index $i";
+        break; // stop the loop
+    }
+    $i++;
+} while ($i < $count);

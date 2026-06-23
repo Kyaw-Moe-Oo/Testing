@@ -1,0 +1,48 @@
+<?php
+$person = [
+    'name' => 'Kyaw Moe Oo',
+    'age' => 30,
+    'phone_number' => '0912345678',
+    'email' => 'kyaw@example.com',
+    'address' => [
+        'city'   => 'Yangon',
+        'street' => 'Kankaw',
+        'ward'   => 'Hta Won Bale',
+    ]
+];
+
+foreach ($person as $key => $value) {
+    if (is_array($value)) {
+        echo "$key = " . implode(', ', $value) . PHP_EOL;
+    } else {
+        echo "$key = $value" . PHP_EOL;
+    }
+}
+
+
+$numbers = range(0, 9);
+
+foreach ($numbers as $num) {
+    echo $num . PHP_EOL;
+}
+
+
+
+$fruits = ['apple', 'banana', 'orange'];
+foreach ($fruits as $fruit) {
+    echo $fruit . PHP_EOL;
+}
+
+
+
+$person = ['name'=>'Kyaw', 'age'=>30, 'city'=>'Yangon'];
+foreach ($person as $key => $value) {
+    echo "$key = $value" . PHP_EOL;
+}
+
+
+
+$numbers = [1, 2, 3, 4, 5];
+foreach ($numbers as $num) {
+    echo "$num squared = " . ($num * $num) . PHP_EOL;
+}
