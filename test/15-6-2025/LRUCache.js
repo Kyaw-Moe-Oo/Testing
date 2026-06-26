@@ -31,7 +31,6 @@ class LRUCache {
     }
 }
 
-
 const cache = new LRUCache(2);
 
 cache.put(1, 1);
