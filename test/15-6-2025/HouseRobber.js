@@ -6,13 +6,14 @@ function rob(nums) {
     let prev = 0;
     let curr = 0;
 
-    for (const money of nums) {
-        const best = Math.max(curr, prev + money);
+    for (const money of nums) { //10,1,1
+                                //0,10, 10,1, 10,11
+        const best = Math.max(curr, prev + money);  //10,10,11
 
-        prev = curr;
-        curr = best;
+        prev = curr; // 0,10,10
+        curr = best; // 10,10,11
     }
 
     return curr;
 }
-console.log(rob([10, 1, 1, 10]));
+console.log(rob([10, 1,1]));

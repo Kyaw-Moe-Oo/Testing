@@ -1,50 +1,24 @@
-class LRUCache {
-    constructor(capacity) {
-        this.capacity = capacity;
-        this.cache = new Map();
-    }
+function findMaxMeeting(intervals) {
+    if (!Array.isArray(intervals) || intervals.length === 0) return 0;
 
-    get(key) {
-        if (!this.cache.has(key)) {
-            return -1;
-        }
-
-        const value = this.cache.get(key);
-        // move to most recent
-        this.cache.delete(key);
-        this.cache.set(key, value);
-
-        return value;
-    }
-
-    put(key, value) {
-        if (this.cache.has(key)) {
-            this.cache.delete(key);
-        }
-
-        this.cache.set(key, value);
-
-        if (this.cache.size > this.capacity) {
-            const oldestKey = this.cache.keys().next().value;
-            this.cache.delete(oldestKey);
+    const meetings = [...intervals].sort((a, b) => a[1] - b[1]);
+    let meetingcount = 0;
+    let lastmeetingend = 0;
+    for (const meeting of meetings) {
+        const currentStart = meeting[0];
+        const currentEnd = meeting[1];
+        if (currentStart >= lastmeetingend) {
+            meetingcount++;
+            lastmeetingend = currentEnd;
         }
     }
+    return meetingcount;
 }
-
-
-const cache = new LRUCache(2);
-
-cache.put(1, 1);
-cache.put(2, 2);
-
-console.log(cache.get(1)); // 1
-
-cache.put(3, 3);
-
-console.log(cache.get(2)); // -1
-
-cache.put(4, 4);
-
-console.log(cache.get(1)); // -1
-console.log(cache.get(3)); // 3
-console.log(cache.get(4)); // 4
+let intervals = [
+    [1,2],
+    [3,4],
+    [0,6],
+    [5,7],
+    [8,9]
+];
+console.log(findMaxMeeting(intervals));
